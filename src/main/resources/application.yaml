@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    password: candystore
+    username: candystore
+    url: jdbc:mysql://localhost:3306/candystore
+logging:
+  level:
+   root: warn
+   '[com.promineotech]': debug

@@ -1,0 +1,8 @@
+Spring:
+  datasource:
+    url: jdbc:h2:mem:candystore
+
+logging:
+  level:
+   root: warn
+   '[com.promineotech]': debug
