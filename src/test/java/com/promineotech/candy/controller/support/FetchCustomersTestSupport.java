@@ -1,7 +1,10 @@
 package com.promineotech.candy.controller.support;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import org.springframework.http.HttpStatus;
 import com.promineotech.candy.entity.Customers;
 
 public class FetchCustomersTestSupport extends BaseTest {
@@ -28,6 +31,19 @@ public class FetchCustomersTestSupport extends BaseTest {
    
    return list; 
   }
+  
+  protected void assertErrorMessageValid(Map<String, Object> error, 
+      HttpStatus status) {
+    //@formatter: off
+    assertThat(error)
+    .containsKey("message")
+    .containsEntry("Status code", status.value())
+    .containsEntry("uri", "/customers")
+    .containsKey("timestamp")
+    .containsEntry("reason", status.getReasonPhrase());
+    //@formatter: on 
+  }
+
 
 
 }

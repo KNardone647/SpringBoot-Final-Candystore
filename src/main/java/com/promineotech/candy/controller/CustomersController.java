@@ -1,11 +1,14 @@
 package com.promineotech.candy.controller;
 
 import java.util.List;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import com.promineotech.candy.Constants;
 import com.promineotech.candy.entity.Customers;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,13 +20,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.Parameter;
 
 
-
+@Validated
 @RequestMapping("/customers")
 @OpenAPIDefinition(info = @Info(title = "Customers"), servers = {
     @Server(url = "http://localhost:8080", description = "Local server.")})
 public interface CustomersController {
  
   
+
   //@formatter:off
   @Operation(
       summary = "Returns customer",
@@ -75,6 +79,7 @@ public interface CustomersController {
   List<Customers> fetchCustomers(
       @RequestParam(required = false)
       String firstName,
+      @Length(max = Constants.NAME_MAX_LENGTH_50)
       @RequestParam(required = false)
       String lastName);
 
