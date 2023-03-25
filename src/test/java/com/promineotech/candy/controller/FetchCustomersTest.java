@@ -37,7 +37,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
       config = @SqlConfig(encoding = "utf-8"))
 class FetchCustomersTest extends FetchCustomersTestSupport{
  
- 
+ //if this continues not to work can comment out this test 
   @Test
 void testThatCustomerIsReturnedWhenValidFirstandLastNameSupplied() {
    //Given: a valid firstName and lastName

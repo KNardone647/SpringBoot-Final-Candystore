@@ -21,7 +21,7 @@ public class Products {
     
     private BigDecimal cost;
     
-    private int inventory; 
+    private Integer inventory; 
     
     private String commonAllergiens; 
     

@@ -21,4 +21,16 @@ public class BaseTest {
    
     return String.format("http://localhost:%d/customers", serverPort);
   }
+  
+  //method that gets connection for Products Table 
+  protected String getBaseUriForProducts() {
+    
+    return String.format("http://localhost:%d/products", serverPort);
+  }
+  
+  //method for new Products 
+    protected String getBaseUriForNewProducts() {
+    
+    return String.format("http://localhost:%d/newproducts", serverPort);
+  }
 }
