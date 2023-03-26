@@ -21,13 +21,14 @@ INSERT INTO customers (customer_id, first_name, last_name, phone) VALUES(5, 'Jod
 INSERT INTO customers (customer_id, first_name, last_name, phone) VALUES(6, 'Michael', 'Fox', '755.888.5000');
 INSERT INTO customers (customer_id, first_name, last_name, phone) VALUES(7, 'Jamie', 'Fox', '929.223.5969');
 
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(1, 2, 'medium', '2022-12-31');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(2, 2, 'medium', '2021-12-14');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(3, 4, 'large', '2023-01-04');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(4, 3, 'large', '2023-02-08');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(5, 6, 'small', '2022-12-05');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(6, 1, 'small', '2023-03-15');
-INSERT INTO orders (order_id , customer_id, size, order_date) VALUES(7, 2, 'small', '2022-12-31');
+INSERT INTO orders (order_id , customer_id, size) VALUES(1, 2, 'medium');
+INSERT INTO orders (order_id , customer_id, size) VALUES(2, 2, 'medium');
+INSERT INTO orders (order_id , customer_id, size) VALUES(3, 4, 'large');
+INSERT INTO orders (order_id , customer_id, size) VALUES(4, 3, 'large');
+INSERT INTO orders (order_id , customer_id, size) VALUES(5, 6, 'small');
+INSERT INTO orders (order_id , customer_id, size) VALUES(6, 1, 'small');
+INSERT INTO orders (order_id , customer_id, size) VALUES(7, 2, 'small');
+
 
 INSERT INTO orderDetials (order_id , product_id, quantity, paid_each) VALUES(2, 6, 1, 2.50);
 INSERT INTO orderDetials (order_id , product_id, quantity, paid_each) VALUES(1, 4, 3, 22.00);

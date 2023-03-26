@@ -33,7 +33,7 @@ order_id INT AUTO_INCREMENT NOT NULL,
 customer_id INT NOT NULL,
 FOREIGN KEY(customer_id) REFERENCES customers(customer_id) ON DELETE CASCADE,
 size TEXT,
-order_date DATE NOT NULL,
+order_date timestamp default current_timestamp,
 PRIMARY KEY(order_id)
 
 );

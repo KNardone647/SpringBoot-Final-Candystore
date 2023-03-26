@@ -13,8 +13,8 @@ import java.util.Comparator;
 @AllArgsConstructor
 public class Customers  {
 
-
-  private int customerId;
+// do I need to change to long? 
+  private Long customerId;
   
   private String firstName;
   
@@ -23,7 +23,7 @@ public class Customers  {
   private String phone;
   
   @JsonIgnore
-  public int getcustomerId() {
+  public Long getcustomerId() {
     return customerId; 
   }
 

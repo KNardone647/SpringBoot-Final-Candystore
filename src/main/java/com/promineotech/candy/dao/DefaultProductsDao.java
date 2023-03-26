@@ -24,6 +24,7 @@ public class DefaultProductsDao implements ProductsDao {
   private NamedParameterJdbcTemplate jdbcTemplate;
   
   //connects to data base and sends to other layers, for our swagger connection
+  
 
   @Override
   public List<Products> fetchProducts() {

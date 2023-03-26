@@ -19,6 +19,8 @@ public class OrderDetails {
 //      FOREIGN KEY(product_id) REFERENCES products(product_id) ON DELETE CASCADE,
 //      quantity int, 
 //      paid_each decimal(5,2)
+  
+  // do I need to go back and change like orders for my foriegn keys??? 
 
  private int orderId; 
  

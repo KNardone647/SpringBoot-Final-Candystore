@@ -1,6 +1,7 @@
 package com.promineotech.candy.entity;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,9 +26,8 @@ public class Orders {
   private int customerId;
   
   private String size; 
-  
-  private Date orderDate; 
-  
+ 
+  private Timestamp orderDate;
   
   
   

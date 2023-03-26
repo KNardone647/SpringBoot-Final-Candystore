@@ -43,7 +43,7 @@ public class DefaultCustomersDao implements CustomersDao {
       public Customers mapRow(ResultSet rs, int rowNum) throws SQLException {
      // @formatter:off
         return Customers.builder()
-            .customerId(rs.getInt("customer_id"))
+            .customerId(rs.getLong("customer_id"))
             .firstName(rs.getString("first_name"))
             .lastName(rs.getString("last_name"))
             .phone(rs.getString("phone"))

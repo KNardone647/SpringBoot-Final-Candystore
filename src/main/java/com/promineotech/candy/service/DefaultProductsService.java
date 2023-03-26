@@ -22,6 +22,7 @@ public class DefaultProductsService implements ProductsService {
     return productsDao.fetchProducts();
   }
   
+ //create operation
   public Products createProducts(String productName, BigDecimal cost, Integer inventory,
       String commonAllergiens, String ingredients, String brand, String typeProduct) {
     return productsDao.createProducts(productName, cost, inventory,

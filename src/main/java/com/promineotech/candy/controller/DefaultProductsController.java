@@ -2,8 +2,10 @@ package com.promineotech.candy.controller;
 
 import java.math.BigDecimal;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import com.promineotech.candy.controller.model.ProductsDTO;
 import com.promineotech.candy.entity.Products;
 import com.promineotech.candy.service.ProductsService;
 import lombok.extern.slf4j.Slf4j;
@@ -23,12 +25,13 @@ public class DefaultProductsController implements ProductsController {
     return productsService.fetchProducts();
   }
   
+  //create crud operation passing DTO with getters 
+  
   @Override
-  public Products createProducts(String productName,
-      BigDecimal cost, Integer inventory, String commonAllergiens, String ingredients,
-      String brand, String typeProduct) {
-     return productsService.createProducts(productName, cost, inventory, commonAllergiens,
-         ingredients, brand, typeProduct);
+  public Products createProducts(@Valid ProductsDTO productsDTO) {
+     return productsService.createProducts(productsDTO.getProductName(), 
+         productsDTO.getCost(), productsDTO.getInventory(), productsDTO.getCommonAllergiens(),
+         productsDTO.getIngredients(), productsDTO.getBrand(), productsDTO.getTypeProduct());
   };
   
 }

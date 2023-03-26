@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
-import com.promineotech.candy.controller.support.CreateProductsTestSupport;
+import com.promineotech.candy.controller.support.FetchOrdersTestSupport;
+
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -15,11 +16,11 @@ import com.promineotech.candy.controller.support.CreateProductsTestSupport;
   scripts = {"classpath:flyway/migrations/CandyStore1.sql", 
              "classpath:flyway/migrations/CandyStoreData.sql"}, 
       config = @SqlConfig(encoding = "utf-8"))
-class CreateProductsTest extends CreateProductsTestSupport {
+class FetchOrdersTest extends FetchOrdersTestSupport {
 
-//  @Test
-//  void test() {
-//    fail("Not yet implemented");
-//  }
+  @Test
+  void test() {
+    System.out.println(getBaseUriForOrders());
+  }
 
 }
