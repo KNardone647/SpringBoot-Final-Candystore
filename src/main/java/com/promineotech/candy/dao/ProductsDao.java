@@ -15,4 +15,11 @@ public interface ProductsDao {
   Products createProducts(String productName, BigDecimal cost, Integer inventory,
       String commonAllergiens, String ingredients, String brand, String typeProduct);
 
+  //creating PUT method for the products 
+  Products updateProducts(int productId, String productName, BigDecimal cost, Integer inventory,
+      String commonAllergiens, String ingredients, String brand, String typeProduct);
+
+  //creating Delete method for the products
+  void deleteProducts(int productId);
+
 }

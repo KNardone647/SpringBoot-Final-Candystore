@@ -40,4 +40,13 @@ public class BaseTest {
       return String.format("http://localhost:%d/orders", serverPort);
     }
      
+    
+
+    
+    //base URI method call for order detials 
+    protected String getBaseUriForOrderDetials() {
+      
+      return String.format("http://localhost:%d/orderdetials", serverPort);
+    }
+     
 }

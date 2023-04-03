@@ -32,6 +32,24 @@ public class DefaultProductsController implements ProductsController {
      return productsService.createProducts(productsDTO.getProductName(), 
          productsDTO.getCost(), productsDTO.getInventory(), productsDTO.getCommonAllergiens(),
          productsDTO.getIngredients(), productsDTO.getBrand(), productsDTO.getTypeProduct());
+  }
+
+  //update crud operation passing DTP with getters 
+  @Override
+  public Products updateProducts(@Valid ProductsDTO productsDTO) {
+    return productsService.updateProducts(productsDTO.getProductId(), productsDTO.getProductName(), 
+        productsDTO.getCost(), productsDTO.getInventory(), productsDTO.getCommonAllergiens(),
+        productsDTO.getIngredients(), productsDTO.getBrand(), productsDTO.getTypeProduct());
+  }
+
+  // delete product 
+  @Override
+  public void deleteProducts(@Valid ProductsDTO productsDTO) {
+    productsService.deleteProducts(productsDTO.getProductId());
+    
   };
   
+
+
+ 
 }

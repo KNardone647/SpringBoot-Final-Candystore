@@ -13,4 +13,11 @@ public interface ProductsService {
   public Products createProducts(String productName, BigDecimal cost, Integer inventory,
       String commonAllergiens, String ingredients, String brand, String typeProduct);
 
+  
+  // for put/update operation
+  public Products updateProducts(int productId, String productName, BigDecimal cost, Integer inventory,
+      String commonAllergiens, String ingredients, String brand, String typeProduct);
+
+  // for delete operation
+  public void deleteProducts(int productId);
 }

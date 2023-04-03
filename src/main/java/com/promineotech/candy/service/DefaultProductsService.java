@@ -29,6 +29,23 @@ public class DefaultProductsService implements ProductsService {
         commonAllergiens, ingredients, brand, typeProduct);
     
   }
+
+  
+  
+//Put/ update for Products 
+  @Override
+  public Products updateProducts(int productId, String productName, BigDecimal cost, Integer inventory,
+      String commonAllergiens, String ingredients, String brand, String typeProduct) {
+    return productsDao.updateProducts(productId, productName, cost, inventory,
+        commonAllergiens, ingredients, brand, typeProduct);
+  }
+
+  //delete product
+  @Override
+  public void deleteProducts(int productId) {
+    productsDao.deleteProducts(productId);
+    
+  }
   
 
 }

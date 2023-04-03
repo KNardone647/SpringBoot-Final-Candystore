@@ -3,8 +3,10 @@ package com.promineotech.candy.controller;
 import java.math.BigDecimal;
 import java.util.List;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import com.promineotech.candy.controller.model.ProductsDTO;
@@ -128,12 +130,12 @@ public interface ProductsController {
   
   //formatter:off  
  @Operation(
-     summary = "Returns the list of Products",
-     description = "Returns a list of Products",
+     summary = "Create a new product",
+     description = "Create a new product",
          responses = {
              @ApiResponse(
                  responseCode = "200",
-                 description = "A list of Products gets returned",
+                 description = "A product was created",
                  content = @Content(
                      mediaType = "application/json", 
                      schema = @Schema(implementation = Products.class))),
@@ -190,4 +192,75 @@ public interface ProductsController {
     
  //formatter:on
   
+//Update an existing client
+ 
+ @Operation(
+     summary = "Updates a product",
+     description = "Returns updated product",
+     responses = {
+         @ApiResponse(
+             responseCode = "200", 
+             description = "A product was updated!", 
+             content = @Content(
+                 mediaType = "application/json", 
+             schema = @Schema(implementation = Products.class))),
+         @ApiResponse(
+             responseCode = "400", 
+             description = "The request parameters are invalid.", 
+             content = @Content(
+                 mediaType = "application/json")),
+         @ApiResponse(
+             responseCode = "404", 
+             description = "Unable to update the product with the input criteria.", 
+             content = @Content(
+                 mediaType = "application/json")),
+         @ApiResponse(
+             responseCode = "500", 
+             description = "An unplanned error occurred.", 
+             content = @Content(
+                 mediaType = "application/json"))
+     }
+ )
+ 
+ //Put method (update)
+
+ @PutMapping
+ @ResponseStatus(code = HttpStatus.OK)
+ Products updateProducts(@Valid @RequestBody ProductsDTO productsDTO); 
+ // @formatter:on
+ 
+ @Operation(
+     summary = "deletes a product",
+     description = "delete a product",
+     responses = {
+         @ApiResponse(
+             responseCode = "200", 
+             description = "A product was deleted!", 
+             content = @Content(
+                 mediaType = "application/json", 
+             schema = @Schema(implementation = Products.class))),
+         @ApiResponse(
+             responseCode = "400", 
+             description = "The request parameters are invalid.", 
+             content = @Content(
+                 mediaType = "application/json")),
+         @ApiResponse(
+             responseCode = "404", 
+             description = "Unable to update the product with the input criteria.", 
+             content = @Content(
+                 mediaType = "application/json")),
+         @ApiResponse(
+             responseCode = "500", 
+             description = "An unplanned error occurred.", 
+             content = @Content(
+                 mediaType = "application/json"))
+     }
+ )
+ 
+ //Put method (update)
+
+ @DeleteMapping
+ @ResponseStatus(code = HttpStatus.OK)
+ void deleteProducts(@Valid @RequestBody ProductsDTO productsDTO); 
+ // @formatter:on
 }

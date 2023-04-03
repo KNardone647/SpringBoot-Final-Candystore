@@ -97,6 +97,69 @@ public class DefaultProductsDao implements ProductsDao {
       String sql;
       MapSqlParameterSource source = new MapSqlParameterSource();
   }
+     
+      //put operation passing to database
+      
+      @Override
+      public Products updateProducts(int productId, String productName, BigDecimal cost, Integer inventory,
+          String commonAllergiens, String ingredients, String brand, String typeProduct) {
+       
+      //@formatter:off
+        String sql = ""
+            + "UPDATE products "
+            + "SET " 
+            + "product_name = :product_name, "
+            + "cost = :cost, "
+            + "inventory = :inventory, "
+            + "common_allergiens = :common_allergiens, "
+            + "ingredients = :ingredients, "
+            + "brand = :brand, "
+            + "type_product = :type_product "
+            + "WHERE product_id = :product_id;";
+        //@formatter:on
+        
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("product_name", productName);
+        params.put("cost", cost);
+        params.put("inventory", inventory);
+        params.put("common_allergiens", commonAllergiens);
+        params.put("ingredients", ingredients);
+        params.put("brand", brand);
+        params.put("type_product", typeProduct);
+        params.put("product_id", productId);
+
+        jdbcTemplate.update(sql, params);
+        //formatter:off
+        return Products.builder()
+            .productId(productId)
+            .productName(productName)
+            .cost(cost)
+            .inventory(inventory)
+            .commonAllergiens(commonAllergiens)
+            .ingredients(ingredients)
+            .brand(brand)
+            .typeProduct(typeProduct)
+            .build();
+        //formatter:on
+      }
+
+      @Override
+      public void deleteProducts(int productId) {
+       
+      //@formatter:off
+        String sql = ""
+            + "DELETE FROM products "
+            + "WHERE product_id = :product_id;";
+        //@formatter:on
+
+       Map<String, Object> params = new HashMap<>();
+       params.put("product_id", productId);
+
+       jdbcTemplate.update(sql, params); // returns number of rows affected
+       return;
+        
+      }
 
   
 }
